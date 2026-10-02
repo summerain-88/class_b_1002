@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Smooth transitions for theme toggle */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-indigo-500/20">
+                HW
+            </div>
+            <span class="font-semibold tracking-tight text-slate-900 dark:text-white">HelloWorld.dev</span>
+        </div>
+
+        <!-- Dark mode toggle button -->
+        <button id="theme-toggle" type="button" aria-label="切換主題" class="p-2.5 rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-200/60 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-4 sm:px-6 relative">
+        <!-- Background decorative ambient blur -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-96 sm:w-[32rem] h-80 bg-gradient-to-tr from-indigo-500/20 via-sky-400/20 to-purple-500/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="w-full max-w-xl text-center">
+            <!-- Tag/Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40 mb-6 shadow-sm animate-pulse-slow">
+                <span class="inline-block w-2 h-2 rounded-full bg-indigo-500"></span>
+                <span>我的第一個網頁應用</span>
+            </div>
+
+            <!-- Main Heading with Gradient -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4">
+                <span id="main-heading" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                    Hello, World!
+                </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-md mx-auto mb-8 leading-relaxed">
+                探索程式世界的起點。每一個偉大的應用程式，都始於這一句經典的問候。
+            </p>
+
+            <!-- Interactive Action Card -->
+            <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <button id="greet-btn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow-md shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900">
+                        點擊打聲招呼 ✨
+                    </button>
+                    <button id="copy-btn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-200 font-medium transition-all duration-200 active:scale-95 focus:outline-none">
+                        複製問候語
+                    </button>
+                </div>
+
+                <!-- Live Response Toast Box -->
+                <div id="greeting-response" class="mt-4 min-h-[28px] text-sm font-medium text-indigo-600 dark:text-indigo-400 transition-all duration-200 opacity-0 transform translate-y-1">
+                    你好！很高興遇見你 👋
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-400 dark:text-slate-600">
+        <p>© 2026 Hello World. 用簡潔與現代設計打造。</p>
+    </footer>
+
+    <script>
+        // Theme toggle logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check system preference or stored preference
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            // Toggle theme
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+        });
+
+        // Greeting response messages
+        const messages = [
+            "你好！很高興遇見你 👋",
+            "歡迎來到網頁開發的美妙世界！🚀",
+            "Hello from the modern web! 🌐",
+            "程式碼的世界無限精彩！💡",
+            "祝你有美好的一天！☀️"
+        ];
+        let msgIndex = 0;
+
+        const greetBtn = document.getElementById('greet-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        const responseBox = document.getElementById('greeting-response');
+        const mainHeading = document.getElementById('main-heading');
+
+        // Cycle the main heading through five languages.
+        const greetings = [
+            'Hello, World!',
+            '你好，世界！',
+            'こんにちは、世界！',
+            '¡Hola, mundo!',
+            'Bonjour, le monde !'
+        ];
+        let headingIndex = 0;
+
+        window.setInterval(() => {
+            headingIndex = (headingIndex + 1) % greetings.length;
+            mainHeading.textContent = greetings[headingIndex];
+        }, 1500);
+
+        greetBtn.addEventListener('click', () => {
+            msgIndex = (msgIndex + 1) % messages.length;
+            responseBox.textContent = messages[msgIndex];
+            responseBox.classList.remove('opacity-0', 'translate-y-1');
+            responseBox.classList.add('opacity-100', 'translate-y-0');
+        });
+
+        // Clipboard copy functionality
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = mainHeading.textContent.trim();
+            const tempInput = document.createElement("textarea");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            responseBox.textContent = `已成功複製「${textToCopy}」到剪貼簿！📋`;
+            responseBox.classList.remove('opacity-0', 'translate-y-1');
+            responseBox.classList.add('opacity-100', 'translate-y-0');
+        });
+    </script>
+</body>
+</html>
